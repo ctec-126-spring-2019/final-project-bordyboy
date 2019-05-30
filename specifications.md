@@ -2,7 +2,7 @@ JS Final Project - by Bogdan Livadaru
 
 First Page:
 - Home Page with button to ask for a random advice using an api (advice slip api - https://api.adviceslip.com/)
-- Favorite button. Adds the current advice to your favourites, an account is needed and can be made. I will be using mongoDB to handle username and passwords.
+- Favorite button. Adds the current advice to your favourites, an account is needed and can be made. I will be using HTML5 Web Storage to handle username and passwords.
 - A navbar will also be visible here and on all other pages.
 
 Second Page:
