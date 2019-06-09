@@ -1,0 +1,16 @@
+{
+    "123": {
+        "password": "123",
+        "favorites": [
+            {
+                "fav": "asjkhfglkashflahflaohfkljaSHFkljASFKLJashflkASLKFAskfhklasHFLKasflkASFHKLJ"
+            },
+            {
+                "fav": "asfasfasfasfasfasfasfasfasfasf"
+            },
+            {
+                "fav": "asfasfasfasfSDGSAGASDGASDGSADG"
+            }
+        ]
+    }
+}
