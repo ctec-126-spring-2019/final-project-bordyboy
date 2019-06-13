@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Advicer</title>
-    <link rel="stylesheet" href="css/final.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Advicer</title>
+  <link rel="stylesheet" href="css/final.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
 </head>
+
 <body class="bg-dark">
 
-    <h1 class="text-center m-5 text-white"> Advicer - Home </h1>
-    <ul class="nav justify-content-center nav-pills">
-            <li class="nav-item">
-              <a class="nav-link active" href="final.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="favorites.html">Favorites</a>
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="feedback.html">Feedback</a>
-            </li> -->
-    </ul> 
+  <h1 class="text-center m-5 text-white"> Advicer - Home </h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="text-center col-6 mx-auto">
 
-    <div id="result" class="text-center m-5 result col-6 mx-auto"></div>
-    <div class="text-center">
-      <button class="btn-lg btn-primary m-5" id="getAdvice">Click here to get an advice!</button>
-      <img id="favIcon" src="https://img.icons8.com/ultraviolet/40/000000/bookmark-ribbon.png" alt="Icon used to add the current advice to your favorites." style="display:none">
-      <span id="favText" class="text-white favbtn m-2" style="display:none" >Add to Favorites</span>
+        <p id="result" class="result"></p>
+
+        <button id="report" type="button" class="btn btn-danger" style="display:none">Report this advice</button>
+
+        <button class="btn-lg btn-primary m-5" id="getAdvice">Click here to get a new advice!</button>
+
+        <button type="button" class="btn btn-success" id="save" style="display:none">Save this advice</button>
+
+        <div id="reportForm" class="text-center" style="display:none">
+
+          <label for="reason" class="text-center text-white m-2">Reason for Report:</label>
+          <textarea id="reason" name="reason" placeholder="Please be throughout in your response" rows="5" cols="40"
+            class="form-control w-auto mx-auto"></textarea>
+          <button id="sendReport" type="button" class="btn btn-danger m-3">Send</button>
+
+
+        </div>
+        <div id="thanks" style="display:none">
+          <p class="text-center text-success">Thanks for the feedback!</p>
+        </div>
+
+
+
+
+
+
+
+      </div>
+
+      <div class="text-center text-white col-6" style="display:none" id="savedAdvices">
+        <h2>Saved Advices</h2>
+        <div id="showSaved"></div>
+      </div>
+
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="js/index.js"></script>
+  </div>
+
+
+
+
+
+  <div class="mt-5 footer text-center text-white">
+    <p>Credit for the API goes to: <a href="https://api.adviceslip.com/" target="_blank">Advice Slip API</a></p>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="js/index.js"></script>
 </body>
+
 </html>

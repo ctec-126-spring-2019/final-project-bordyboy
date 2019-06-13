@@ -7,11 +7,20 @@ $('#getAdvice').on('click', function () {
         function (data) {
             var result = '';
             console.log(data);
-            result += '<p class="text-white"><i>"' + data.slip.advice + '"</i></p>';
+            var advice = data.slip.advice
+            result += '<p class="text-white"><i>"' + advice + '"</i></p>';
 
-            $('#favIcon').css('display', 'inline');
-            $('#favText').css('display', 'inline');
+            $('#save').css('display', 'inline');
+            $('#report').css('display', 'inline');
+
             $('#result').html(result);
+            $('#save').prop("disabled", true);
+            $('#save').removeAttr("disabled");
+            $('#save').removeClass('disabled');
+            $('#report').removeAttr("disabled");
+            $('#report').removeClass('disabled');
+            $('#thanks').css('display', 'none');
+            $('#reportForm').css('display', 'none');
 
         }).always(function () {
             console.log('Always...');
@@ -20,45 +29,27 @@ $('#getAdvice').on('click', function () {
         });
 })
 
-
-$('#submit').on('click', function () {
-    var firstname =
-        $.ajax({
-        method: 'GET',    
-        dataType: 'JSON',
-            url: 'database.json'
-        }).done(
-            function (data) {
-                var user = $('#username').val();
-                var password = $('#password').val();
-                var userEntered = data.users[user];
-                console.log(userEntered)
-                if (userEntered != undefined) {
-                    $('#username').removeClass('is-invalid')
-                    if (password == data.users[user].password) {
-                        $("#logIn").addClass('d-none')
-                        var output = '';
-                        for (let i = 0; i < userEntered.favorites.length; i++) {
-                            var praf = userEntered.favorites[i].fav
-                            console.log(praf)
-                            output += '<p><i>-' + praf + '</i></p>'
-                        }
-                        console.log(output)
-                        $('#output').html(output);
-
-                    } else {
-                        $('#password').addClass('is-invalid')
-                    }
-                } else {
-                    $('#username').addClass('is-invalid')
-                    $('#password').addClass('is-invalid')
-                }
-
-
-
-            })
+$('#save').on('click', function () {
+    $('#savedAdvices').css('display', 'inline');
+    var advice = '<p><i>';
+    advice += $('#result').text();
+    advice += '</i></p>';
+    console.log(advice);
+    $('#showSaved').append(advice);
+    $('#save').addClass('disabled');
+    $('#save').attr('disabled', true);
 })
 
+$('#report').on('click', function () {
+    $('#reportForm').css('display', 'block');
 
+})
 
-
+$('#sendReport').on('click', function () {
+    adviceReported = $('#result').text();
+    $('#reportForm').css('display', 'none');
+    $('#report').addClass('disabled');
+    $('#report').attr('disabled', true);
+    $('#thanks').css('display', 'block');
+    $('#reason').val('');
+})
